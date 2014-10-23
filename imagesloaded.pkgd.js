@@ -654,7 +654,7 @@ function makeArray( obj ) {
     }
     // use elem as selector string
     if ( typeof elem === 'string' ) {
-      elem = $(document).find(elem); // IE 7 fix document.querySelectorAll( elem );
+      elem = $(document).find(elem).toArray(); // IE 7 fix document.querySelectorAll( elem );
     }
 
     this.elements = makeArray( elem );
@@ -704,7 +704,7 @@ function makeArray( obj ) {
       if ( !nodeType || !( nodeType === 1 || nodeType === 9 || nodeType === 11 ) ) {
         continue;
       }
-      var childElems = $(elem).find('img');// IE7 fix elem.querySelectorAll('img');
+      var childElems = $(elem).find('img').toArray();// IE7 fix elem.querySelectorAll('img');
       // concat childElems to filterFound array
       for ( var j=0, jLen = childElems.length; j < jLen; j++ ) {
         var img = childElems[j];
